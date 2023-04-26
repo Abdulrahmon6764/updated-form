@@ -1,0 +1,11 @@
+*{
+    margin: none;
+    padding: none;
+    box-sizing: border-box;
+}
+#content{
+    margin-top: 440px;
+    background: linear-gradient( rgb(129, 184, 129), rgb(129, 184, 129));
+
+}
+

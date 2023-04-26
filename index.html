@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta email="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Form</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+</head>
+<body style="background-color: rgb(129, 184, 129);">
+
+<div class="container">
+<div class="row justify-content-center" style="margin:20px;" >
+<div class="bg-success col-lg-6 col-md-8 text-light">
+<div  class="col-lg-12 my-3 p-4" style="font-size:70px;">
+Sign Up
+</div> <hr style="color:wheat;">
+<div class="col-lg-12">
+<div id="loggedsucc"></div>
+<form name="userInfo">
+<div class="form-group mb-3">
+<label class="text-white" style="font-weight: bolder;" class="form-control-label">Username:</label>
+<input type="text" name="useremail" id="Useremail" class="form-control">
+<div class="text-danger" id="demo1" ></div>
+</div>
+<div class="form-group  mb-3">
+<label class="text-white" style="font-weight: bolder;" class="form-control-label">Email:</label>
+<input type="text" id="myemail" name="email" class="form-control">
+<div class="text-danger" id="demo2"></div>
+</div>
+<div class="form-group  mb-3">
+<label class="text-white" style="font-weight: bolder;" class="form-control-label">Phone number:</label>
+<input type="text" name="phonenum" id="Phonenum" class="form-control">
+<div class="text-danger" id="demo3"></div>
+</div>
+<div class="form-group  mb-3">
+<label class="text-white" style="font-weight: bolder;" class="form-control-label">Password:</label>
+<input type="password" id="pass" name="passwor"  class="form-control" >
+<div class="text-danger" id="demo4" ></div>
+</div>
+<div class="form-group  mb-3">
+<label class="text-white" style="font-weight: bolder;" class="form-control-label">Confirm Password:</label>
+<input type="password" id="confirmpass" name="confirmpasswor"  class="form-control" >
+<div class="text-danger" id="demo5"></div>
+</div>
+<div class="form-group  mb-3">
+<label for="inputAddress" style="font-weight: bolder;" class="dark" class="form-label">Address:</label>
+<input type="text" class="form-control" name="inputadd" id="inputAddress" placeholder="1234 Main St">
+<div class="text-danger" id="demo6"></div>
+</div>
+<div class="form-group">
+<label for="inputAddress2" style="font-weight: bolder;" class="dark" class="form-label">Address 2:</label>
+<input type="text" class="form-control" name="inputaddress2"  id="inputAddress2" placeholder="Apartment, studio, or floor">
+<div class="text-danger" id="demo88"></div>
+</div>
+<div class="form-group">
+<label for="inputCity" class="dark" style="font-weight: bolder;" class="form-label">City:</label>
+<input type="text" class="form-control" name="inputcity" id="inputCity">
+<div class="text-danger" id="#demo8"></div>
+</div>
+<!-- <div class="form-group">
+<label for="inputState" class="dark" style="font-weight: bolder;" class="form-label">State:</label>
+<select id="inputState" style="font-weight: bolder;" name="inputstate" class="form-select">
+                            
+<option selected>Choose...</option>
+<option>North Dakota</option>
+<option>North Carolina</option>
+<option>New York</option>
+<option>Tennesse</option>
+</select>
+                        
+</div> -->
+<div class="form-group">
+<label for="inputZip" style="font-weight: bolder;"  class="form-label" style="color: black;">Zip:</label>
+<input type="text" name="inputzipcode" class="form-control" id="inputZip">
+<div class="text-danger" id="demo10"></div>
+</div>
+                    
+<div class="col-12 mt-4   justify-content-center d-flex"  >
+<button type="submit"  style="font-weight: bolder;font-size: 20px;" class="btn btn-light text-dark w-100 my-4 p-3">Register</button>
+</div>
+<div class="col-12 mt-4 justify-content-center d-flex"  >
+<small style="font-size: 20px;" class="text-white  my-2" >Already have an account?</small>
+<a href="loginForm.html" class="btn btn-white text-dark mb-4" style="font-weight: bolder;font-size: 20px;">Login here</a>
+                            
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>  
+
+<script>
+let form = document.forms['userInfo']
+ form.addEventListener("submit", (e)=>{
+    e.preventDefault()
+let useremail = form['useremail'].value.trim()
+ let email = form['email'].value.trim()
+ let phonenum = form['phonenum'].value.trim()
+ let passwor = form['passwor'].value.trim()
+ let confirmpass = form['confirmpass'].value.trim()
+ let inputadd = form['inputadd'].value.trim()
+ let inputaddress2 = form['inputaddress2'].value.trim()
+ let inputcity = form['inputcity'].value.trim()
+//  let inputstate = form['inputstate'].value.trim()
+ let inputzipcode = form['inputzipcode'].value.trim()
+// object
+ const allErr = {}
+///valid
+  allValid = ''
+  phonuvalid = ''
+  emailVali = ''
+  passworVali = ''
+  confirmPvali = ''
+  addEevali = ''
+ inpulvali = ''
+ zipvali = ''
+ inputadddvali = ''
+   
+ 
+
+
+
+
+ if(useremail == ''){
+    allErr['useremailErr'] = 'Please fill out this field.'
+
+    document.querySelector('#demo1').innerHTML=allErr['useremailErr']
+ }else if(useremail.indexOf('@')==-1 && useremail.indexOf('$')==-1){
+     allErr['useremailErr'] = 'Either "@" "$" character must be included'
+     document.querySelector('#demo1').innerHTML=allErr['useremailErr']
+ }else{
+    allValid = ''
+    document.querySelector('#demo1').innerHTML= allValid;
+ }
+ if(phonenum == ''){
+   allErr['phoneErr'] = 'Please fill out this field.'
+   document.querySelector('#demo3').innerHTML=allErr['phoneErr'];
+ }else if(phonenum.length != 11){
+    allErr['phoneErr'] = 'Invalid number'
+    document.querySelector('#demo3').innerHTML=allErr['phoneErr']
+ }else if(phonenum.startsWith("081") != true && phonenum.startsWith("080") != true && phonenum.startsWith("070") != true && phonenum.startsWith("090") != true && phonenum.startsWith("091") != true){
+         allErr['phoneErr'] = 'wrong code number'
+         document.querySelector('#demo3').innerHTML=allErr['phoneErr'];
+ }else{
+    phonuvalid = ''
+    document.querySelector('#demo3').innerHTML=phonuvalid;
+ }
+if(email == ''){
+    allErr['emailErr'] = 'Please fill out this field.'
+    document.querySelector('#demo2').innerHTML=allErr['emailErr']
+}else if(email.indexOf('@') == -1 || email.indexOf('.')==-1 || email.endsWith('@'==true)){
+    allErr['emailErr'] = 'Please enter correct email address format'
+    document.querySelector('#demo2').innerHTML=allErr['emailErr']
+}else{
+    emailVali = ''
+    document.querySelector('#demo2').innerHTML=emailVali;
+}
+
+if(passwor == ''){
+   allErr['passworErr'] = 'Please fill out this field.'
+    document.querySelector('#demo4').innerHTML=allErr['passworErr']
+}else if(passwor.length < 6){
+    allErr['passworErr'] = 'Password must not less than 6 character'
+    document.querySelector('#demo4').innerHTML=allErr['passworErr']
+}else{
+    passworVali = ''
+    document.querySelector('#demo4').innerHTML=passworVali;
+}
+if(confirmpass == ''){
+   allErr['confirmErr'] = 'Please fill out this field'
+   document.querySelector('#demo5').innerHTML=allErr['confirmErr']
+}else if(confirmpass != passwor){
+    allErr['confirmErr'] = 'Password not match'
+    document.querySelector('#demo5').innerHTML=allErr['confirmErr']
+}else{
+    confirmPvali = ''
+    document.querySelector('#demo5').innerHTML=confirmPvali;
+}
+if(inputadd == ''){
+    allErr['addErr'] = 'Please fill out this field'
+    document.querySelector('#demo6').innerHTML=allErr['addErr']
+}else{
+    addEevali = ''
+    document.querySelector('#demo6').innerHTML=addEevali;
+}
+if(inputcity == ''){
+    allErr['errall'] = 'Please fill out this field'
+    document.getElementById('#demo8').innerHTML=allErr['errall']
+}else{
+    inpulvali = ''
+    document.getElementById('#demo8').innerHTML=inpulvali;
+}
+
+if(inputzipcode == ''){
+    allErr['zipErr'] = 'Please fill out this field.'
+    document.querySelector('#demo10').innerHTML=allErr['zipErr']
+}else if(inputzipcode.length != 5){
+    allErr['zipErr'] = 'Please enter a correct zipcode'
+    document.querySelector('#demo10').innerHTML=allErr['zipErr']
+}else{
+    zipvali = ''
+    document.querySelector('#demo10').innerHTML=zipvali;
+}
+
+if(inputaddress2 == ''){
+    allErr['address2Err'] = 'Please fill out this field'
+    document.querySelector('#demo88').innerHTML=allErr['address2Err']
+}else{
+    inputadddvali = ''
+    document.querySelector('#demo88').innerHTML=inputadddvali;
+}
+
+if(allErr == ''){
+    document.querySelector('#loggedsucc').innerHTML='Logged success'
+ }else{
+   let loggedsucc = document.getElementById('loggedsucc')
+   loggedsucc.innerHTML = 'Account created successfully' + '<br>' + 'Login your Account';
+   loggedsucc.style.backgroundColor='white';
+   loggedsucc.style.color='green';
+   loggedsucc.style.fontSize='35px';
+   setTimeout(()=>{
+    window.location = 'loginForm.html'
+   },2000)
+ }
+
+
+
+if(Object.keys( allErr).length==0){
+    
+    const user ={id:Date.now(),useremail:useremail, email:email, phonenum:phonenum, passwor:passwor, inputadd:inputadd, inputaddress2:inputaddress2, inputcity:inputcity, inputzipcode:inputzipcode}
+     let users = []
+     if(! localStorage.getItem('users')){
+    users.push(user)
+   }else{
+     users= JSON.parse(localStorage.getItem('users'))
+     users.push(user)
+   }
+     
+     
+
+
+   localStorage.setItem('users', JSON.stringify(users))
+  
+
+
+   }else{
+     console.log('not validate')
+   }
+
+
+ })
+ 
+
+ 
+
+
+
+
+</script>    
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>    
+</body>
+</html>
